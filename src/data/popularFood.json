@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "image": "/Users/sreypichphan/Documents/development/ReactNative/FoodApp/src/assets/img/grillSalmon.png",
+    "name": "Grill Salmon",
+    "price": 82,
+    "isFavorite": true,
+    "star": 4.9,
+    "rate_num": 209
+  },
+  {
+    "id": 2,
+    "image": "/Users/sreypichphan/Documents/development/ReactNative/FoodApp/src/assets/img/pasta.png",
+    "name": "Pasta with Ham",
+    "price": 76,
+    "isFavorite": true,
+    "star": 4.3,  
+    "rate_num": 202
+  },
+  {
+    "id": 3,
+    "image": "/Users/sreypichphan/Documents/development/ReactNative/FoodApp/src/assets/img/steak.png",
+    "name": "Steak",
+    "price": 98,
+    "isFavorite": true,
+    "star": 4.8,
+    "rate_num": 150
+  },
+  {
+    "id": 4,
+    "image": "/Users/sreypichphan/Documents/development/ReactNative/FoodApp/src/assets/img/indian.png",  
+    "name": "Indain",
+    "price": 52,
+    "isFavorite": true,
+    "star": 4.1,
+    "rate_num": 300
+  }
+]

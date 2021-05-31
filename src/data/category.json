@@ -1,0 +1,27 @@
+[
+  {
+    "id": 1,
+    "image":"/Users/sreypichphan/Documents/development/ReactNative/FoodApp/src/assets/img/sushi.png",
+    "title": "Sushi"
+  },
+  {
+    "id": 2,
+    "image":"/Users/sreypichphan/Documents/development/ReactNative/FoodApp/src/assets/img/fastfood.png",
+    "title": "Fast Food"
+  },
+  {
+    "id": 3,
+    "image":"/Users/sreypichphan/Documents/development/ReactNative/FoodApp/src/assets/img/fruit.png",
+    "title": "Fruit"
+  },
+  {
+    "id": 4,
+    "image":"/Users/sreypichphan/Documents/development/ReactNative/FoodApp/src/assets/img/protein.png",
+    "title": "Protein"
+  },
+  {
+    "id": 5,
+    "image":"/Users/sreypichphan/Documents/development/ReactNative/FoodApp/src/assets/img/burger.png",
+    "title": "Burger"
+  }
+]

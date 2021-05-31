@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "cover_image": "/Users/sreypichphan/Documents/development/ReactNative/FoodApp/src/assets/img/hamburger.jpg",
+    "name": "Salad with chicken",
+    "star": 4.9,
+    "rate_num": 201,
+    "restuarant_name": "Pizza Hut"
+  },
+  {
+    "id": 2,
+    "cover_image": "/Users/sreypichphan/Documents/development/ReactNative/FoodApp/src/assets/img/salad-plate.jpg",
+    "name": "Steak with salad",
+    "star": 4.9,
+    "rate_num": 201,
+    "restuarant_name": "Pizza Hut"
+  },
+  {
+    "id": 3,
+    "cover_image": "/Users/sreypichphan/Documents/development/ReactNative/FoodApp/src/assets/img/hamburger.jpg",
+    "name": "Spaghatti with Ham",
+    "star": 4.9,
+    "rate_num": 201,
+    "restuarant_name": "Pizza Hut"
+  }
+]
