@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {View, Text, StyleSheet, Image} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
-class BestFood extends Component {
+class Restaurant extends Component {
   render(){
     return(
       <View style={styles.container}>
@@ -10,7 +10,7 @@ class BestFood extends Component {
         <View style={styles.innerContent}>
           <View>
           <Text style={{fontWeight: '600'}}>{this.props.name}</Text>
-          <Text style={{color: '#616264', fontSize: 12}}>by {this.props.restuarant_name}</Text>
+          <Text style={{color: '#616264', fontSize: 12, paddingBottom: 4}}>{this.props.restuarant_tag}</Text>
           <View style={{flexDirection: 'row'}}>
             <Text style={{fontSize: 12}}>{this.props.star}</Text>
             <Icon name="star" size={12} color="red"/>
@@ -25,9 +25,6 @@ class BestFood extends Component {
             <Icon name="near-me" size={24} color="red" />
           </View>
         </View>
-        {/* <View style={{flexDirection: 'column'}}>
-          
-          </View> */}
       </View>
     )
   }
@@ -64,4 +61,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default BestFood;
+export default Restaurant;

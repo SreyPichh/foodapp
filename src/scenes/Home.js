@@ -18,123 +18,143 @@ import categoryData from '../data/category.json';
 import Category from './Category';
 import PopularFood from '../components/popularFood';
 import popularFoodData from '../data/popularFood.json';
-import featureFood from '../data/featureFood.json';
-import BestFood from '../components/bestFood';
+import restaurantData from '../data/restuarantData.json';
+import Restaurant from '../components/restaurant';
 
 class Home extends Component {
   render() {
     return (
       <SafeAreaView>
         <ScrollView showsVerticalScrollIndicator={false}>
-        <View style={styles.container}>
-          <View style={styles.top_header}>
-            <Text style={{fontSize: 18, fontWeight: 'bold'}}>
-              What would you like to eat?
-            </Text>
-            <TouchableOpacity>
-              <Icon name="bell-outline" size={24} />
-            </TouchableOpacity>
-          </View>
-          <View style={styles.search}>
-            <View style={{marginLeft: 8, alignItems: 'center', justifyContent: 'center'}}>
-              <Icon name="magnify" size={24} color="red"/>
+          <View style={styles.container}>
+            <View style={styles.top_header}>
+              <Text style={{fontSize: 18, fontWeight: 'bold'}}>
+                What would you like to eat?
+              </Text>
+              <TouchableOpacity>
+                <Icon name="bell-outline" size={24} />
+              </TouchableOpacity>
             </View>
-            <TextInput
-              placeholder={'Find a food or restaurent'}
-              placeholderTextColor="#CACACA"
-              onChangeText={this.props.onChangeText}
-              clearButtonMode="always"
-              autoFocus={false}
-              value={this.props.searchedWord}
-              style={styles.search_box}
-            />
-            <TouchableOpacity
-              onPress={() => this.props.navigation.navigate('searchFilter')} 
-              style={{ alignSelf: 'center', alignItems: 'flex-end'}}>
-              <Icon name="filter-variant" size={24} style={styles.filter_icon} color="red" />
-            </TouchableOpacity>
+            <View style={styles.search}>
+              <View
+                style={{
+                  marginLeft: 8,
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                }}>
+                <Icon name="magnify" size={24} color="red" />
+              </View>
+              <TextInput
+                placeholder={'Find a food or restaurent'}
+                placeholderTextColor="#CACACA"
+                onChangeText={this.props.onChangeText}
+                clearButtonMode="always"
+                autoFocus={false}
+                value={this.props.searchedWord}
+                style={styles.search_box}
+              />
+              <TouchableOpacity
+                onPress={() => this.props.navigation.navigate('searchFilter')}
+                style={{alignSelf: 'center', alignItems: 'flex-end'}}>
+                <Icon
+                  name="filter-variant"
+                  size={24}
+                  style={styles.filter_icon}
+                  color="red"
+                />
+              </TouchableOpacity>
+            </View>
+            <View>
+              <FlatList
+                keyboardShouldPersistTaps="handled"
+                horizontal={true}
+                showsHorizontalScrollIndicator={false}
+                data={categoryData}
+                keyExtractor={item => item.id}
+                renderItem={({item}) => {
+                  return (
+                    <>
+                      {
+                        <TouchableOpacity>
+                          <Category
+                            key={item.id}
+                            image={item.image}
+                            title={item.title}
+                          />
+                        </TouchableOpacity>
+                      }
+                    </>
+                  );
+                }}
+              />
+            </View>
+            <View style={{marginTop: 16}}>
+              <Text style={styles.header_text}>Popular Foods</Text>
+              <FlatList
+                keyboardShouldPersistTaps="handled"
+                horizontal={true}
+                showsHorizontalScrollIndicator={false}
+                data={popularFoodData}
+                keyExtractor={item => item.id}
+                renderItem={({item}) => {
+                  return (
+                    <>
+                      {
+                        <TouchableOpacity
+                          onPress={() => {
+                            this.props.navigation.navigate('ProductDetail', {
+                              id: item.id,
+                              image: item.image,
+                              name: item.name,
+                              price: item.price,
+                              restaurant: item.restaurant
+                            });
+                          }}>
+                          <PopularFood
+                            key={item.id}
+                            image={item.image}
+                            name={item.name}
+                            price={item.price}
+                            isFavorite={item.isFavorite}
+                            star={item.star}
+                            rate_num={item.rate_num}
+                            restaurant={item.restaurant}
+                          />
+                        </TouchableOpacity>
+                      }
+                    </>
+                  );
+                }}
+              />
+            </View>
+            <View style={{marginTop: 20}}>
+              <Text style={styles.header_text}>Restaurants</Text>
+              <FlatList
+                horizontal={false}
+                style={{marginTop: 16}}
+                data={restaurantData}
+                keyExtractor={item => item.id}
+                renderItem={({item}) => {
+                  return (
+                    <>
+                      {
+                        <TouchableOpacity>
+                          <Restaurant
+                            key={item.id}
+                            cover_image={item.cover_image}
+                            name={item.name}
+                            star={item.star}
+                            rate_num={item.rate_num}
+                            restuarant_tag={item.restuarant_tag}
+                          />
+                        </TouchableOpacity>
+                      }
+                    </>
+                  );
+                }}
+              />
+            </View>
           </View>
-          <View>
-            <FlatList 
-              keyboardShouldPersistTaps="handled"
-              horizontal={true}
-              showsHorizontalScrollIndicator={false}
-              data={categoryData}
-              keyExtractor={(item) => item.id}
-              renderItem = {({item}) => {
-                return (
-                  <>
-                  {
-                    <TouchableOpacity>
-                      <Category
-                        key={item.id}
-                        image={item.image}
-                        title={item.title}
-                      />
-                    </TouchableOpacity>
-                  }
-                  </>
-                );
-              }}
-            />
-          </View>
-          <View style={{ marginTop: 16}}>
-            <Text style={styles.header_text}>Popular Foods</Text>
-            <FlatList
-            keyboardShouldPersistTaps="handled"
-            horizontal = {true}
-            showsHorizontalScrollIndicator={false}
-            data = {popularFoodData}
-            keyExtractor = {(item) => item.id}
-            renderItem = {({item}) => {
-              return(
-                <>
-                {
-                  <TouchableOpacity>
-                    <PopularFood 
-                      key={item.id}
-                      image={item.image}
-                      name={item.name}
-                      price={item.price}
-                      isFavorite={item.isFavorite}
-                      star={item.star}
-                      rate_num={item.rate_num}
-                    />
-                  </TouchableOpacity>
-                }
-                </>
-              );
-            }}
-             />
-          </View>
-          <View style={{marginTop: 20}}>
-          <Text style={styles.header_text}>Best Foods</Text>
-          <FlatList
-            horizontal={false}
-            style={{marginTop: 16}}
-            data={featureFood}
-            keyExtractor={(item) => item.id}
-            renderItem={({item}) => {
-              return(
-                <>
-                {
-                  <TouchableOpacity>
-                    <BestFood 
-                      key={item.id}
-                      cover_image={item.cover_image}
-                      name={item.name}
-                      star={item.star}
-                      rate_num={item.rate_num}
-                      restuarant_name={item.restuarant_name}
-                    />
-                  </TouchableOpacity>
-                }
-                </>
-              )
-            }}
-           />
-          </View>
-        </View>
         </ScrollView>
       </SafeAreaView>
     );
@@ -156,7 +176,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderWidth: 1,
     borderRadius: 6,
-    borderColor: "#DBDCE0",
+    borderColor: '#DBDCE0',
   },
   search_box: {
     width: 'auto',
@@ -169,10 +189,10 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     marginLeft: 85,
   },
-  header_text:{
+  header_text: {
     fontSize: 18,
-    fontWeight: '500'
-  }
+    fontWeight: '500',
+  },
 });
 
 export default Home;

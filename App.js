@@ -34,6 +34,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 //Import internal component
 import Home from './src/scenes/Home';
 import BottomTab from './src/components/bottomTab';
+import ProductDetail from './src/scenes/ProductDetail';
 
 const AuthStack = createStackNavigator();
 const AppStack = createStackNavigator();
@@ -67,6 +68,13 @@ class App extends Component {
           <AppStack.Screen
             name="Account"
             component={Home}
+            options={{
+              headerShown: false,
+            }}
+          />
+          <AppStack.Screen
+            name="ProductDetail"
+            component={ProductDetail}
             options={{
               headerShown: false,
             }}

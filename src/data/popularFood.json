@@ -6,7 +6,8 @@
     "price": 82,
     "isFavorite": true,
     "star": 4.9,
-    "rate_num": 209
+    "rate_num": 209,
+    "restaurant": "pizza hut"
   },
   {
     "id": 2,
@@ -15,7 +16,8 @@
     "price": 76,
     "isFavorite": true,
     "star": 4.3,  
-    "rate_num": 202
+    "rate_num": 202,
+    "restaurant": "pizza hut"
   },
   {
     "id": 3,
@@ -24,7 +26,8 @@
     "price": 98,
     "isFavorite": true,
     "star": 4.8,
-    "rate_num": 150
+    "rate_num": 150,
+    "restaurant": "pizza hut"
   },
   {
     "id": 4,
@@ -33,6 +36,7 @@
     "price": 52,
     "isFavorite": true,
     "star": 4.1,
-    "rate_num": 300
+    "rate_num": 300,
+    "restaurant": "pizza hut"
   }
 ]
